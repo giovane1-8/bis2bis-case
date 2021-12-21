@@ -42,11 +42,11 @@
     <div class="mx-auto">
 
         <div class="d-flex">
-            <form method="POST" action="#">
+            <form method="POST" action="<?php echo VENDOR_PATH."home/cadastrar" ?>">
                     <div class="form-group">
                         <label for="nome">Nome e sobrenome</label>
-                        <input type="text" class="form-control" maxlength="45" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" value="<?php if (isset($_SESSION["nm_usuario"])) {
-                                                                                                                                                                    echo $_SESSION["nm_usuario"];
+                        <input type="text" class="form-control" maxlength="45" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" value="<?php if (isset($_SESSION["nm_nome"])) {
+                                                                                                                                                                    echo $_SESSION["nm_nome"];
                                                                                                                                                                 } ?>" required>
                     </div>
 
