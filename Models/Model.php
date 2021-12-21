@@ -34,7 +34,7 @@ class Model
         $query->execute();
         $email = $query->fetch();
 
-        if (!empty($email)) {
+        if (!empty($email) || $email != "root@root") {
             return true;
         } else {
             return false;

@@ -22,9 +22,6 @@ class HomeController extends Controller
                 die("recarregue a Pagina");
             });
 
-
-
-
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')            
             $this->view->render("home", 'Home', "navbar", "navfooter");
         } else {
@@ -38,6 +35,7 @@ class HomeController extends Controller
                         $_SESSION['nm_usuario'] = "root";
                         $_SESSION['nm_senha'] = $dados['senha'];
                         $_SESSION['nm_email'] = $dados['usuario'];
+                        $_SESSION['nm_privilegio'] = "gm";
                         header("location: " . VENDOR_PATH . "adm");
                         die("recarregue a Pagina");
                     }
