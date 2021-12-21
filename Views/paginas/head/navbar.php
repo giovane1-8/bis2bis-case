@@ -6,42 +6,36 @@
   </button>
 
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-auto nav-pills nav-fill">
+    <ul class="navbar-nav mr-auto nav-pills nav-fill mx-auto">
+      <!--
       <li class="col nav-item">
         <a class="nav-link" href="#">vip</a>
       </li>
       <li class="col nav-item">
         <a class="nav-link" href="#">contato</a>
       </li>
+-->
       <?php if ($_SESSION['isLogado']) : ?>
-        <li class="col nav-item">
-          <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel"><?php echo explode(" ", $_SESSION['nm_usuario'])[0] ?></a>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel">Painel de usuario</a>
         </li>
-        <li class="col nav-item">
+        <li class="nav-item ">
           <a class="nav-link" style="color: red" href="<?php echo VENDOR_PATH ?>home/sair">Sair</a>
         </li>
 
       <?php else : ?>
-        <li class="col nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>login">Login</a>
         </li>
-        <li class="col nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>cadastrar">Cadastrar</a>
         </li>
       <?php endif; ?>
 
       <?php if (@$_SESSION['nm_privilegios'] == "gm") : ?>
-        <center>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              configurações do servidor
-            </a>
-            <div class="dropdown-menu" aria-labelledby="triggerId">
-              <a class="dropdown-item" href="<?php echo VENDOR_PATH ?>setup">Adicionar dados</a>
-              <a class="dropdown-item" href="<?php echo VENDOR_PATH ?>setup/excluir">Excluir dados</a>
-            </div>
-          </div>
-        </center>
+        <li class="nav-item ">
+          <a class="nav-link" href="<?php echo VENDOR_PATH ?>adm">Administração</a>
+        </li>
       <?php endif; ?>
 
     </ul>

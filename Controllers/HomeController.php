@@ -22,7 +22,7 @@ class HomeController extends Controller
                 die("recarregue a Pagina");
             });
 
-
+            
 
 
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')            
