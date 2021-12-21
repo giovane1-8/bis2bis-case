@@ -42,6 +42,10 @@ class HomeController extends Controller
                 $this->view->render("login", 'Erro Login');
                 $this->view->errMsg();
             });
+            
+            \Router::rota("home/cadastrar", function () {
+                $this->view->render("cadastrar", 'Cadastro');
+            });
             $this->view->render("login", 'Home');
         }
     }

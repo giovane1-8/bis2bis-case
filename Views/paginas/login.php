@@ -12,7 +12,7 @@
                 Se não tiver um conta crie uma;
             </div>
             <div class='modal-footer'>
-                <a href='<?php echo VENDOR_PATH ?>cadastrar'> <button class='btn btn-primary'>CRIAR UMA CONTA</button><a>
+                <a href='<?php echo VENDOR_PATH ?>home/cadastrar'> <button class='btn btn-primary'>CRIAR UMA CONTA</button><a>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
             </div>
             <div class="container mt-2">
                 <p>
-                    <a href="<?php echo VENDOR_PATH ?>cadastrar" class="darkmode-ignore btn btn-dark">Click aqui para fazer cadastro</a>
+                    <a href="<?php echo VENDOR_PATH ?>home/cadastrar" class="darkmode-ignore btn btn-dark">Click aqui para fazer cadastro</a>
                 </p>
             </div>
 
