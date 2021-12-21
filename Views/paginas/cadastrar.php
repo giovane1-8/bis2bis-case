@@ -3,8 +3,8 @@
     <div class="mx-auto">
 
         <div class="d-flex">
-            <form class="col" method="post" action="#">
-                    <div class="form-group col-sm-6">
+            <form method="POST" action="#">
+                    <div class="form-group">
                         <label for="nome">Nome e sobrenome</label>
                         <input type="text" class="form-control" maxlength="45" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" value="<?php if (isset($_SESSION["nm_usuario"])) {
                                                                                                                                                                     echo $_SESSION["nm_usuario"];
@@ -26,16 +26,14 @@
                                                                                                                                     } ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="cor">Cor favorita</label>
-                    <input type="color" name="cor" maxlength="7" class="form-control" id="cor" placeholder="Senha" value="<?php if (isset($_SESSION["nm_cor_favorita"])) {
-                                                                                                                                echo $_SESSION["nm_cor_favorita"];
-                                                                                                                            } else {
-                                                                                                                                echo "#fff";
-                                                                                                                            } ?>" required>
+                    <label for="confirmaSenha">Confirmar senha:</label>
+                    <input type="password" maxlength='45' name="confirmaSenha" class="form-control" id="confirmaSenha" placeholder="confirmaSenha" value="<?php if (isset($_SESSION["nm_senha"])) {
+                                                                                                                                        echo $_SESSION["nm_senha"];
+                                                                                                                                    } ?>" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <a href=" <?php echo VENDOR_PATH ?>login" class="darkmode-ignore btn btn-dark">Click aqui se ja tiver um login</a>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href=" <?php echo VENDOR_PATH ?>" class="darkmode-ignore btn btn-dark">Click aqui se ja tiver um login</a>
 
             </form>
         </div>

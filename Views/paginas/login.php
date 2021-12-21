@@ -24,7 +24,7 @@
             <h2>Você precisa esta logado para acessar o blog</h2>
         </div>
 
-        <form class="col" method="post" action="#">
+        <form class="col" method="post" action="<?php echo VENDOR_PATH."home/login" ?>">
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Endereço de email:</label>
