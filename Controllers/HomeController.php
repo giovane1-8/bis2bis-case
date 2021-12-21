@@ -38,13 +38,13 @@ class HomeController extends Controller
                         header("location: " . VENDOR_PATH);
                         die("recarregue a Pagina");
                     } else {
-                        header("location: " . VENDOR_PATH."home/erro");
+                        header("location: " . VENDOR_PATH . "home/erro");
 
                         die("recarregue a Pagina");
                     }
                 }
             });
-            
+
 
             \Router::rota("home/erro", function () {
                 $this->view->render("login", 'Erro Login');
@@ -52,7 +52,6 @@ class HomeController extends Controller
             });
 
             \Router::rota("home/cadastrar", function () {
-                $this->view->render("cadastrar", 'Cadastro');
                 if (!empty($_POST)) {
 
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -80,12 +79,13 @@ class HomeController extends Controller
                         header("Location: " . VENDOR_PATH . "cadastrar/erro");
                     }
                 }
+                $this->view->render("cadastrar", 'Cadastro');
             });
             \Router::rota("home/cadastrar/emailemuso", function () {
                 $this->view->render("cadastrar", "Cadastro");
                 $this->view->msgEmail();
             });
-            
+
             \Router::rota("home/cadastrar/senha", function () {
                 $this->view->render("cadastrar", "Cadastro");
                 $this->view->msgSenha();
