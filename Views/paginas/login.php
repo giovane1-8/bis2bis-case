@@ -1,9 +1,28 @@
+<div style='color: black' class='modal fade' id='err' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Email ou Senha <font color='red'>INCORRETOS</font>
+                </h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                Se não tiver um conta crie uma;
+            </div>
+            <div class='modal-footer'>
+                <a href='<?php echo VENDOR_PATH ?>cadastrar'> <button class='btn btn-primary'>CRIAR UMA CONTA</button><a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class=" h-100 d-flex text-center ">
 
     <div class="mx-auto">
         <div style="max-width: 300px; color: red;">
             <h2>Você precisa esta logado para acessar o blog</h2>
-        </div>  
+        </div>
 
         <form class="col" method="post" action="#">
 
