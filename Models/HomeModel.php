@@ -47,6 +47,9 @@ class HomeModel extends Model{
 
         if ($smtm->execute()) {
             $this->resultado = true;
+            
         }
     }
+
+
 }

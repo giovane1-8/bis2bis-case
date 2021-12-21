@@ -26,9 +26,9 @@ class HomeController extends Controller
 
 
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')            
-            $this->view->render("home", 'Home');
+            $this->view->render("home", 'Home',"navbar","navfooter");
         } else {
-
+            // SISTEMA DE LOGIN
             \Router::rota("home/login", function () {
                 if (!empty($_POST)) {
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -50,7 +50,7 @@ class HomeController extends Controller
                 $this->view->render("login", 'Erro Login');
                 $this->view->errMsg();
             });
-
+            // SISTEMA DE CADASTRO DE USUARo
             \Router::rota("home/cadastrar", function () {
                 if (!empty($_POST)) {
 
@@ -74,7 +74,15 @@ class HomeController extends Controller
 
 
                     if ($this->model->getResultado()) {
-                        header("Location: " . VENDOR_PATH . "login/cadastro");
+                        $dados = array('usuario' =>$dados["email"], "senha" => $dados["senha"]);
+                        $this->model->validarLogin($dados);
+                        if ($this->model->getResultado()) {
+                            $_SESSION['isLogado'] = true;
+                            header("Location: " . VENDOR_PATH);
+                            die("Recarregue a pagina");
+                        }else{
+                            header("Location: " . VENDOR_PATH."home/login");
+                        }
                     } else {
                         header("Location: " . VENDOR_PATH . "cadastrar/erro");
                     }

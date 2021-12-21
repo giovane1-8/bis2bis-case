@@ -18,7 +18,7 @@
               <a class="nav-link" style="color: <?php echo $_SESSION['nm_cor_favorita'] ?>" href="<?php echo VENDOR_PATH ?>painel"><?php echo $_SESSION['nm_nickname'] ?></a>
             </li>
             <li class="col nav-item">
-              <a class="nav-link" style="color: red" href="<?php echo VENDOR_PATH ?>login/sair">Sair</a>
+              <a class="nav-link" style="color: red" href="<?php echo VENDOR_PATH ?>home/sair">Sair</a>
             </li>
 
           <?php else : ?>
