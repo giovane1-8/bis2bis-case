@@ -1,4 +1,9 @@
 <?php
+/*
+ * Classe filha de todas as Models
+ * aqui fica os metodos e propriedades que usamos em todas as Model
+ * aqui fica a conexão com o servidor de banco de dados
+*/
 
 namespace Models;
 

@@ -1,4 +1,10 @@
 <?php
+/*
+ * Define a constante que tem como valor o dominio do sistema web
+ * Captura a rota e cria os objetos Model View e Controller dependendo da rota escolhida
+ * Sempre sera criado o objeto com o nome da primeiro caminho da rota com a concatenação de Model ou View ou Controller. EX: homeController
+ * se nenhum caminho é especificado ele chama a classe Home
+*/
     define("VENDOR_PATH","http://192.168.15.11/bis2bis-case/");
     if(empty($_SESSION['isLogado'])){
         $_SESSION['isLogado'] = false;

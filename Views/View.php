@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Classe filha de todas as views
+ * aqui fica os metodos e propriedades que usamos em todas as views
+*/
     namespace Views;
 
     class View{

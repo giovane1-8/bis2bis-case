@@ -1,4 +1,10 @@
 <?php
+/*
+ * Pagina que é carregada sempre 
+ * Captura por metodo get a rota digitada
+ * chama o objeto Application para carregar os objetos de cada pagina
+ * Iniciamos a sessão 
+*/
 session_start();
 ob_start();
 $autoload = function ($class) {
