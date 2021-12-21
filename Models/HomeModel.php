@@ -24,7 +24,7 @@
                 $_SESSION['nm_usuario'] = $return['nm_usuario'];
                 $_SESSION['nm_senha'] = $return['nm_senha'];
                 $_SESSION['nm_email'] = $return['nm_email'];
-                $_SESSION['nm_vip'] = $return['nm_vip'];
+                $_SESSION['nm_privilegios'] = $return['nm_privilegios'];
                 $this -> resultado = true;
             }else{ 
                 $_SESSION['isLogado'] = false;

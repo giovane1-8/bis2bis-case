@@ -19,4 +19,29 @@ class HomeView extends View
                     </script>
                 ";
     }
+    function msgEmail()
+    {
+        echo "
+            
+            <script>
+                $('#ExemploModalCentralizado').modal('show');
+            
+                setTimeout(() =>{
+                    $('#ExemploModalCentralizado').modal('hide')
+                },5000);            
+            </script>";
+    }
+    
+    function msgSenha()
+    {
+        echo "
+            
+            <script>
+                $('#senhaerr').modal('show');
+            
+                setTimeout(() =>{
+                    $('#senhaerr').modal('hide')
+                },5000);            
+            </script>";
+    }
 }
