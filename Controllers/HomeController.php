@@ -22,19 +22,23 @@ class HomeController extends Controller
                 die("recarregue a Pagina");
             });
 
-            
+
 
 
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')            
-            $this->view->render("home", 'Home',"navbar","navfooter");
+            $this->view->render("home", 'Home', "navbar", "navfooter");
         } else {
             // SISTEMA DE LOGIN
             \Router::rota("home/login", function () {
                 if (!empty($_POST)) {
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                     $_SESSION['nm_email'] = $dados['usuario'];
-                    if ($dados['usuario'] == "root" && $dados['senha'] == "root") {
-                        header("location: ".VENDOR_PATH."adm");
+                    if ($dados['usuario'] == "root@root" && $dados['senha'] == "root") {
+                        $_SESSION['id_usuario'] = 0;
+                        $_SESSION['nm_usuario'] = "root";
+                        $_SESSION['nm_senha'] = $dados['senha'];
+                        $_SESSION['nm_email'] = $dados['usuario'];
+                        header("location: " . VENDOR_PATH . "adm");
                         die("recarregue a Pagina");
                     }
                     $this->model->validarLogin($dados);
@@ -78,14 +82,14 @@ class HomeController extends Controller
 
 
                     if ($this->model->getResultado()) {
-                        $dados = array('usuario' =>$dados["email"], "senha" => $dados["senha"]);
+                        $dados = array('usuario' => $dados["email"], "senha" => $dados["senha"]);
                         $this->model->validarLogin($dados);
                         if ($this->model->getResultado()) {
                             $_SESSION['isLogado'] = true;
                             header("Location: " . VENDOR_PATH);
                             die("Recarregue a pagina");
-                        }else{
-                            header("Location: " . VENDOR_PATH."home/login");
+                        } else {
+                            header("Location: " . VENDOR_PATH . "home/login");
                         }
                     } else {
                         header("Location: " . VENDOR_PATH . "cadastrar/erro");
