@@ -13,28 +13,30 @@ class PostController extends Controller
     }
     public function index()
     {
+
+        \Router::rota("post/view/?/delete", function ($par) {
+            echo $par[2];
+            $dados = $this->model->getPostById($par[2]);
+
+        });
         
         \Router::rota("post/view/?", function ($par) {
-            $dados = $this -> model -> getPostById($par[2]);
-            
-            if(!empty($dados)){
-                $dados = array_merge($dados, $this -> model -> getUserById($dados['id_usuario']));
-                $this -> view ->dados = $dados;
+            $dados = $this->model->getPostById($par[2]);
+
+            if (!empty($dados)) {
+                $dados = array_merge($dados, $this->model->getUserById($dados['id_usuario']));
+                $this->view->dados = $dados;
                 $this->view->render("postview", 'Post', "navbar", "navfooter");
-                
-            }else{
+            } else {
                 $this->view->render("postview", 'Post', "navbar", "navfooter");
                 $this->view->msnErro();
             }
-
-
-
         });
 
         if ($_SESSION["isLogado"] && $_SESSION['nm_privilegio'] == "gm") {
             $this->view->render("post", 'Postar', "navbar", "navfooter");
 
-            
+
             if (!empty($_POST)) {
                 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                 $dados['data'] = date('Y/m/d');
