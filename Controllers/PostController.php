@@ -18,7 +18,7 @@ class PostController extends Controller
 
             if (!empty($_POST)) {
                 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-                $dados['data'] = date('d/m/Y');
+                $dados['data'] = date('Y/m/d');
 
                 $this->model->newPost($dados);
                 if ($this->model->getResultado()) {
