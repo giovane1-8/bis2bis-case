@@ -56,7 +56,7 @@
         var editor = new Simditor({
             upload: false,
             placeholder: 
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu fringilla tellus. Suspendisse nec mauris quis massa efficitur fringilla. Cras in odio sed ligula semper aliquet sed et libero. Sed neque velit, congue ac auctor id, laoreet sed magna. Nunc congue eros odio. Nunc lobortis aliquet convallis. Pellentesque fermentum in purus ut varius. Praesent sed nisi sed metus egestas suscipit at nec erat. Nulla eros nibh, consectetur lobortis cursus eu, tempus nec neque. Curabitur vestibulum enim luctus lorem iaculis convallis. Praesent tempor pretium nibh, sit amet pulvinar elit consequat at. Vivamus ac nulla euismod, dapibus eros vehicula, lacinia libero. Praesent gravida in dolor nec commodo.Suspendisse et nisi dignissim, tincidunt ex a, consequat urna. Proin laoreet maximus ligula ac dignissim. Etiam pharetra porttitor tempus. Ut pretium porttitor leo. Sed in nunc urna. Fusce vel dapibus massa, ac pretium turpis. Fusce laoreet facilisis nisl sit amet rutrum. Fusce porta, arcu vitae efficitur vehicula, est libero hendrerit risus, et lacinia nibh dui at urna. Pellentesque nec tortor tincidunt, gravida nibh at, ullamcorper lectus. Phasellus lacus odio, tincidunt vitae lobortis nec, efficitur ut quam. Donec nec vehicula enim. Curabitur convallis ultricies suscipit.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu fringilla tellus. Suspendisse nec mauris quis massa efficitur fringilla.",
             params: {
                 "corpoPost": ""
             },
