@@ -26,7 +26,8 @@ class PostModel extends Model{
             $this->resultado = true;
         }
     }
-
+    function msnDelSucc(){
+    }
     
     function getPostById($idpost){
         $sql = "SELECT * from tb_post WHERE id_post = :idpost limit 1";

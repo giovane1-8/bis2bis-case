@@ -32,4 +32,15 @@ class PostView extends View
     function msnErro(){
         echo "<center><h1>Post não encontrado</h1></center>";
     }
+    function msnDelSucc(){
+        echo "
+            <script>
+                $('#sucessoModal').modal('show');
+            
+                setTimeout(() =>{
+                    $('#sucessoModal').modal('hide')
+                },5000);            
+            </script>";
+    
+    }
 }
