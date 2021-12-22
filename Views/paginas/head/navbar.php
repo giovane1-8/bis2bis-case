@@ -7,14 +7,7 @@
 
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto nav-pills nav-fill mx-auto">
-      <!--
-      <li class="col nav-item">
-        <a class="nav-link" href="#">vip</a>
-      </li>
-      <li class="col nav-item">
-        <a class="nav-link" href="#">contato</a>
-      </li>
--->
+
       <?php if ($_SESSION['isLogado']) : ?>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel">Painel de usuario</a>
@@ -22,7 +15,7 @@
 
         <?php if ($_SESSION['nm_privilegio'] == "gm") : ?>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">post</a>
+            <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">Post</a>
           </li>
 
           <li class="nav-item ">

@@ -13,6 +13,11 @@ class PostController extends Controller
     }
     public function index()
     {
+        
+        \Router::rota("post/view/?", function ($par) {
+            echo $par[2];
+            $this->view->render("postview", 'Post', "navbar", "navfooter");
+        });
         if ($_SESSION["isLogado"] && $_SESSION['nm_privilegio'] == "gm") {
             $this->view->render("post", 'Postar', "navbar", "navfooter");
 

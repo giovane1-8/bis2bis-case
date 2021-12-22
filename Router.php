@@ -17,12 +17,12 @@
 			$url = explode('/',@$_GET['url']);
 			$ok = true;
 			$par = [];
+
 			
-			if((count($path) == count($url)) || (count($path)."/" == count($url))){
+			if((count($path)+1 == count($url)) || (count($path) == count($url))){
 
 				foreach ($path as $key => $value) {
-
-					if(($value == '?') || ($value."/" == '?')){
+					if(($value == '?') || ($value == '?/')){
 						$par[$key] = $url[$key];
 					}
 					
