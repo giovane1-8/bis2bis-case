@@ -5,5 +5,28 @@
 
 namespace Views;
 
-class PostView extends View{
+class PostView extends View
+{
+    function errMsg()
+    {
+        echo "
+        <script>
+            $('#err').modal('show');
+            setTimeout(() =>{
+                $('#err').modal('hide')
+            },5000);
+        </script>
+                    ";
+    }
+    function sucessMsg(){
+        echo "
+            
+            <script>
+                $('#sucessoModal').modal('show');
+            
+                setTimeout(() =>{
+                    $('#sucessoModal').modal('hide')
+                },5000);            
+            </script>";
+    }
 }

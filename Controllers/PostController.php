@@ -13,7 +13,32 @@ class PostController extends Controller
     }
     public function index()
     {
-        $this->view->render("post", 'Postar', "navbar", "navfooter");
-        
+        if ($_SESSION["isLogado"] && $_SESSION['nm_privilegio'] == "gm") {
+            $this->view->render("post", 'Postar', "navbar", "navfooter");
+
+            if (!empty($_POST)) {
+                $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+                $dados['data'] = date('d/m/Y');
+
+                $this->model->newPost($dados);
+                if ($this->model->getResultado()) {
+                    header("location: " . VENDOR_PATH . "post/sucesso");
+                    die("recarregue a Pagina");
+                } else {
+                    header("location: " . VENDOR_PATH . "post/erro");
+                    die("recarregue a Pagina");
+                }
+            }
+
+            \Router::rota("post/erro", function () {
+                $this->view->errMsg();
+            });
+
+            \Router::rota("post/sucesso", function () {
+                $this->view->sucessMsg();
+            });
+        } else {
+            header("location: " . VENDOR_PATH);
+        }
     }
 }
