@@ -11,6 +11,7 @@ class PostModel extends Model{
 
     function getResultado(): bool{
         return $this->resultado;
+        $this -> resultado = false;
     }
     function newPost($dados = null){
         $sql = "INSERT INTO tb_post (nm_titulo,nm_corpo,dt_post,id_usuario) 

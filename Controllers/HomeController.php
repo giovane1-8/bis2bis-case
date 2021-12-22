@@ -22,8 +22,35 @@ class HomeController extends Controller
                 die("recarregue a Pagina");
             });
 
+
+
+            $this -> view -> dados = $this -> model-> getPosts();
+
+
+
+
+
+
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')            
             $this->view->render("home", 'Home', "navbar", "navfooter");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         } else {
             // SISTEMA DE LOGIN
             \Router::rota("home/login", function () {

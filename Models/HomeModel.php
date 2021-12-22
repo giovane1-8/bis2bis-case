@@ -11,7 +11,32 @@ class HomeModel extends Model{
 
     function getResultado(): bool{
         return $this->resultado;
+        $this -> resultado = false;
     }
+
+    function getPosts(){
+        $sql = "SELECT * from tb_post";
+        $query = $this -> PDO ->prepare($sql);
+        $query -> execute();
+        $query = $query -> fetchAll($this -> PDO::FETCH_ASSOC);
+        return $query;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function validarLogin(array $dados = null){
 

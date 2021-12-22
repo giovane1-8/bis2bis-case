@@ -7,7 +7,7 @@
 
     class View{
         CONST PATH_PAGES = "paginas/";
-        
+        public $dados;
         public $titlePage;
 
         public function render($fileName, $titlePage, $head = null, $footer = null){ 
