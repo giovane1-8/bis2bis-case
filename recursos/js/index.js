@@ -37,3 +37,7 @@ const options = {
     autoMatchOsTheme: false // default: true
 }
 darkmode = new Darkmode(options);
+
+if (darkmode.isActivated()) {
+    _("myonoffswitch").checked = true;
+}
