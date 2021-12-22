@@ -13,12 +13,13 @@ class PostModel extends Model{
         return $this->resultado;
     }
     function newPost($dados = null){
-        $sql = "INSERT INTO tb_post (nm_titulo,nm_corpo,dt_post) 
-                       VALUES (?,?,?)";
+        $sql = "INSERT INTO tb_post (nm_titulo,nm_corpo,dt_post,id_usuario) 
+                       VALUES (?,?,?,?)";
         $smtm = $this->PDO->prepare($sql);
         $smtm->bindParam(1, $dados["titulo"], \PDO::PARAM_STR);
         $smtm->bindParam(2, $dados["corpoPost"], \PDO::PARAM_STR);
         $smtm->bindParam(3, $dados["data"], \PDO::PARAM_STR);
+        $smtm->bindParam(4, $_SESSION["id_usuario"], \PDO::PARAM_STR);
 
         if ($smtm->execute()) {
             $this->resultado = true;
