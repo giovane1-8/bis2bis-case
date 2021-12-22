@@ -10,10 +10,9 @@
             $this->view = $view;
             $this->model = $model;
             if (@explode("/",$_GET["url"])[0] != "adm" && @$_SESSION["nm_email"] == "root@root"){
-                echo" voce só pode acesasr adm";
                 session_destroy();
+                header("location: ". VENDOR_PATH);
                 die();
-
             }
         }
         
