@@ -29,4 +29,7 @@ class PostView extends View
                 },5000);            
             </script>";
     }
+    function msnErro(){
+        echo "<center><h1>Post não encontrado</h1></center>";
+    }
 }

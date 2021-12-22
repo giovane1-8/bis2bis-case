@@ -35,7 +35,7 @@
     <form class="col" method="post" action="#">
         <div class="form-group">
             <label for="nome">Titulo do post</label>
-            <input type="text" class="form-control" maxlength="45" name="titulo" placeholder="Como usar PDO com PHP" required>
+            <input type="text" class="form-control" maxlength="100" name="titulo" placeholder="Como usar PDO com PHP" required>
         </div>
         <div class="form-group">
 
