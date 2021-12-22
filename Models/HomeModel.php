@@ -28,7 +28,7 @@ class HomeModel extends Model{
             $_SESSION['nm_usuario'] = $return['nm_usuario'];
             $_SESSION['nm_senha'] = $return['nm_senha'];
             $_SESSION['nm_email'] = $return['nm_email'];
-            $_SESSION['nm_privilegios'] = $return['nm_privilegios'];
+            $_SESSION['nm_privilegio'] = $return['nm_privilegio'];
             $this->resultado = true;
         } else {
             $_SESSION['isLogado'] = false;

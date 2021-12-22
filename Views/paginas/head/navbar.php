@@ -19,6 +19,17 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel">Painel de usuario</a>
         </li>
+
+        <?php if ($_SESSION['nm_privilegio'] == "gm") : ?>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">post</a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo VENDOR_PATH ?>adm">Administração</a>
+          </li>
+        <?php endif; ?>
+
         <li class="nav-item ">
           <a class="nav-link" style="color: red" href="<?php echo VENDOR_PATH ?>home/sair">Sair</a>
         </li>
@@ -30,18 +41,11 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>cadastrar">Cadastrar</a>
         </li>
-      
 
-      <?php if ($_SESSION['nm_privilegios'] == "gm") : ?>
-        <li class="nav-item ">
-          <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">post</a>
-        </li>
 
-        <li class="nav-item ">
-          <a class="nav-link" href="<?php echo VENDOR_PATH ?>adm">Administração</a>
-        </li>
       <?php endif; ?>
-      <?php endif; ?>
+
+
     </ul>
     <form autocomplete="off" class="form-inline my-2 my-lg-0">
 
