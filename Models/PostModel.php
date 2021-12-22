@@ -26,13 +26,17 @@ class PostModel extends Model{
             $this->resultado = true;
         }
     }
-    function msnDelSucc(){
+    function deletePost($idpost){
+        $sql = "DELETE from tb_post Where id_post = :idpost";
+        $smtm = $this->PDO->prepare($sql);
+        $smtm->bindParam(":idpost", $idpost);
+        $smtm->execute();
     }
     
     function getPostById($idpost){
         $sql = "SELECT * from tb_post WHERE id_post = :idpost limit 1";
         $query = $this -> PDO ->prepare($sql);
-        $query -> bindparam(":idpost", $idpost);
+        $query -> bindParam(":idpost", $idpost);
         $query -> execute();
         $query = $query -> fetch($this -> PDO::FETCH_ASSOC);
         return $query;
@@ -45,6 +49,16 @@ class PostModel extends Model{
         $query -> execute();
         $query = $query -> fetch($this -> PDO::FETCH_ASSOC);
         return $query;
+    }
+
+    function alterarPost($dados){
+        $sql = "UPDATE tb_post SET nm_titulo = :tituloPost, nm_corpo = :corpoPost, dt_post = :dtdata WHERE id_post = :idPost;";
+        $query = $this -> PDO ->prepare($sql);
+        $query -> bindparam(":tituloPost", $dados["titulo"], \PDO::PARAM_STR);
+        $query -> bindparam(":corpoPost", $dados["corpoPost"], \PDO::PARAM_STR);
+        $query -> bindparam(":dtdata", $dados["data"], \PDO::PARAM_STR);
+        $query -> bindparam(":idPost", $dados["id_post"], \PDO::PARAM_STR);
+        $query -> execute();
     }
 
 }

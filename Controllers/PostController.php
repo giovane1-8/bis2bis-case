@@ -22,13 +22,30 @@ class PostController extends Controller
                     $this->model->deletePost($par[2]);
                     $this->view->render("painel", 'Painel de Usuario', "navbar", "navfooter");
                     $this->view->msnDelSucc();
+                } else {
+                    header("location: " . VENDOR_PATH . "post/view/" . $par[2]);
+                    die("Recarregue a pagina");
                 }
             });
             \Router::rota("post/view/?", function ($par) {
-
                 $dados = $this->model->getPostById($par[2]);
-               
+
+
+
                 if (!empty($dados)) {
+                    if ($_SESSION['nm_privilegio'] == "gm" || $_SESSION['id_usuario'] == $dados["id_usuario"]) {
+                        if (!empty($_POST)) {
+                            $dados = array_merge($dados, filter_input_array(INPUT_POST, FILTER_DEFAULT));
+                            $dados['data'] = date('Y/m/d');
+                            $this->model->alterarPost($dados);
+                            $dados = $this->model->getPostById($par[2]);
+                            $dados = array_merge($dados, $this->model->getUserById($dados['id_usuario']));
+                            $this->view->dados = $dados;
+                            $this->view->render("postview", 'Post', "navbar", "navfooter");
+                            $this->view->msnAltSucc();
+                            die();
+                        }
+                    }
                     $dados = array_merge($dados, $this->model->getUserById($dados['id_usuario']));
                     $this->view->dados = $dados;
                     $this->view->render("postview", 'Post', "navbar", "navfooter");
@@ -66,6 +83,8 @@ class PostController extends Controller
             } else {
                 header("location: " . VENDOR_PATH);
             }
+        } else {
+            header("location: " . VENDOR_PATH);
         }
     }
 }
