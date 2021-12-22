@@ -8,7 +8,7 @@
         <div class="form-group">
 
             <label for="nickname">Corpo</label>
-            <textarea maxlength="65535" id="textarea" class="form-control" name="corpo" placeholder="Ex: Starkiller889" required>
+            <textarea maxlength="65535" id="textarea" required>
             </textarea>
         </div>
 
@@ -20,9 +20,19 @@
 
 <script>
     window.addEventListener("load", () => {
+
         var editor = new Simditor({
+            upload: false,
+            params: {
+                "corpoPost": ""
+            },
             textarea: $('#textarea')
             //optional options
         });
+        editor.on("valuechanged", () => {
+            $("input[name='corpoPost']").val(editor.getValue())
+            console.log($("input[name='corpoPost']").val())
+        });
+
     })
 </script>
