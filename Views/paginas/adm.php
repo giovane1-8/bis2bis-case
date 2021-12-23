@@ -133,13 +133,13 @@
 
 
 
-<h1 class="mt-5">Fazer Backup do banco de dados</h1>
-<form method="POST" action="<?php echo VENDOR_PATH ?>adm/setBackupBanco">
+<h1 class="mt-5">Configuração do banco de dados: </h1>
+<form method="POST" class="mb-5" action="<?php echo VENDOR_PATH ?>adm/setBackupBanco">
 
     <div class="input-group" aria-labelledby="dropdownMenuButton">
 
         <div class="input-group-prepend">
-            <span class="input-group-text"  style="border-radius: 5px" id="basic-addon1">Backup:</span>
+            <span class="input-group-text" style="border-radius: 5px" id="basic-addon1">Criar Backup:</span>
         </div>
         <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar">
 
@@ -149,6 +149,23 @@
 
 </form>
 
+<form method="POST" action="<?php echo VENDOR_PATH ?>adm/criarBB">
+    <label for="basic-url" >Não criar o banco de dados mais de 1 vez</label>
+    <div class="input-group" aria-labelledby="dropdownMenuButton">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text" style="border-radius: 5px" id="basic-addon1">Criar Banco de dados:</span>
+
+        </div>
+
+        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar">
+
+
+
+    </div>
+
+
+</form>
 
 
 <script>

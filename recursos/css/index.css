@@ -113,9 +113,6 @@ body {
 
 /* CONFIGURAÇÃO MODO DARK */
 
-.darkmode--activated label {
-    color: #fff;
-}
 
 .darkmode--activated .card {
     color: #fff;

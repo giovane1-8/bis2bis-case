@@ -54,6 +54,7 @@ class HomeController extends Controller
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                     $_SESSION['nm_email'] = $dados['usuario'];
                     if ($dados['usuario'] == "root@root" && $dados['senha'] == "root") {
+                        $_SESSION["isLogado"] = true;
                         $_SESSION['id_usuario'] = 0;
                         $_SESSION['nm_usuario'] = "root";
                         $_SESSION['nm_senha'] = $dados['senha'];
