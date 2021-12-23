@@ -76,4 +76,5 @@ class PostModel extends Model
         $query = $query->fetch($this->PDO::FETCH_ASSOC);
         return json_encode($query, JSON_UNESCAPED_UNICODE);
     }
+
 }

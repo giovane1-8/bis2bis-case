@@ -13,14 +13,21 @@ use PDO;
 class Model
 {
     protected object $PDO;
+    protected $username, $password, $servidor, $port, $banco, $caminhoMysql;
     function __construct()
     {
+        //VARIAVEIS DE CONFIGURAÇÃO DO BANCO
+        $this->username = "root";
+        $this->password = "";
+        $this->servidor = "localhost";
+        $this->port = "3306";
+        $this->banco = "db_blog";
+        
+        //Atenção a essa variavel, É totalmente necessario para tarefa de backup do banco de dados
+        $this->caminhoMysql = "C:\\xampp\\mysql\\bin\\";
 
-        $username = "root";
-        $password = "";
-        $servidor = "localhost:3306";
         try {
-            $this->PDO = new \PDO('mysql:host=' . $servidor . ';dbname=db_blog', $username, $password, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            $this->PDO = new \PDO('mysql:host=' . $this->servidor . ':' . $this->port . ';dbname=' . $this->banco, $this->username, $this->password, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $this->PDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
@@ -40,7 +47,7 @@ class Model
             return false;
         }
     }
-    
+
     function getUserById($iduser)
     {
         $sql = "SELECT * from tb_usuario WHERE id_usuario = :idusuario limit 1";
