@@ -24,8 +24,6 @@ class HomeController extends Controller
 
 
 
-            $this -> view -> dados = $this -> model-> getPosts();
-
 
 
 

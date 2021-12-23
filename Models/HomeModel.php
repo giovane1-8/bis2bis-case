@@ -14,15 +14,6 @@ class HomeModel extends Model{
         $this -> resultado = false;
     }
 
-    function getPosts(){
-        $sql = "SELECT * from tb_post ORDER BY dt_post,id_post DESC";
-        $query = $this -> PDO ->prepare($sql);
-        $query -> execute();
-        $query = $query -> fetchAll($this -> PDO::FETCH_ASSOC);
-        return $query;
-    }
-
-
 
 
 
