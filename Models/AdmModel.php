@@ -17,7 +17,8 @@ class AdmModel extends Model
         return $this->resultado;
         $this->resultado = false;
     }
-    function getEmailUser($offset, $nm_usuario = ""){
+    function getEmailUser($offset, $nm_usuario = "")
+    {
         if ($nm_usuario) {
             $nm_usuario = "WHERE nm_email like '%$nm_usuario%'";
         }
@@ -27,7 +28,8 @@ class AdmModel extends Model
         $query = $query->fetchAll($this->PDO::FETCH_ASSOC);
         return json_encode($query, JSON_UNESCAPED_UNICODE);
     }
-    function altUser($dados){
+    function altUser($dados)
+    {
         $sql = "UPDATE tb_usuario SET nm_usuario = :nomeUsuario, nm_email = :emailUsuario, nm_senha = :userSenha,nm_privilegio = :userPrivilegio WHERE id_usuario = :iduser;";
         $query = $this->PDO->prepare($sql);
         $query->bindparam(":nomeUsuario", $dados["nome"], \PDO::PARAM_STR);
@@ -38,7 +40,8 @@ class AdmModel extends Model
         $query->execute();
     }
 
-    function excluiUser($idUser){
+    function excluiUser($idUser)
+    {
         $sql = "DELETE from tb_usuario Where id_usuario = :iduser";
         $smtm = $this->PDO->prepare($sql);
         $smtm->bindParam(":iduser", $idUser);
@@ -50,16 +53,15 @@ class AdmModel extends Model
     function getBackupBanco()
     {
 
-        $dbhost = $this -> servidor;
+        $dbhost = $this->servidor;
         $dbport = $this->port;
         $dbuser = $this->username;
-        $dbpass = $this -> password;
+        $dbpass = $this->password;
         $dbname = $this->banco;
         $caminhoMySql = $this->caminhoMysql;
 
-        $backupfile = VENDOR_PATH.'backupBD/Autobackup_' . date("Ymd") . '.sql';
-        
-        system($caminhoMySql."mysqldump -h $dbhost -P $dbport -u $dbuser $dbname> ". $backupfile);
-    }
+        $backupfile = 'backupBD/Autobackup_' . date("Ymd") . '.sql';
 
+        system($caminhoMySql . "mysqldump -h $dbhost -P $dbport -u $dbuser $dbname> " . $backupfile);
+    }
 }

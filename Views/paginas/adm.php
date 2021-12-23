@@ -31,7 +31,8 @@
     <div class='modal-dialog modal-dialog-centered' role='document'>
         <div class='modal-content'>
             <div class='modal-header'>
-                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario excluido com <font color='green'>SUCESSO</font></h5>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario excluido com <font color='green'>SUCESSO</font>
+                </h5>
                 <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
                     <span aria-hidden='true'>&times;</span>
                 </button>
@@ -39,6 +40,22 @@
         </div>
     </div>
 </div>
+
+
+<div class='modal fade' id='dbBk' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Backup do BD criado com <font color='green'>SUCESSO</font>
+                </h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog bd-example-modal-xl modal-dialog-centered" role="document">
@@ -113,6 +130,27 @@
 
 </div>
 
+
+
+
+<h1 class="mt-5">Fazer Backup do banco de dados</h1>
+<form method="POST" action="<?php echo VENDOR_PATH ?>adm/setBackupBanco">
+
+    <div class="input-group" aria-labelledby="dropdownMenuButton">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text"  style="border-radius: 5px" id="basic-addon1">Backup:</span>
+        </div>
+        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar">
+
+
+    </div>
+
+
+</form>
+
+
+
 <script>
     var limiteoffset = 0;
 
@@ -173,7 +211,7 @@
 
                         $("#nome").val(dados["nm_usuario"])
                         $("#privilegio").val(dados["nm_privilegio"])
-                        _("btnExcluiUser").href=DEFAULT_PATH+"adm/user/"+dados["id_usuario"]+"/delete"
+                        _("btnExcluiUser").href = DEFAULT_PATH + "adm/user/" + dados["id_usuario"] + "/delete"
                         $("#email").val(dados["nm_email"])
                         $("#senha").val(dados["nm_senha"])
                     },

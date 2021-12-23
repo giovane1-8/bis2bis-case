@@ -26,13 +26,23 @@ class AdmController extends Controller
                 $user_id = @$par[2];
                 $this->model->excluiUser($user_id);
                 $this->view->render("adm", 'Home', "navbar", "navfooter");
-                $this -> view -> msgDelUser();
+                $this->view->msgDelUser();
             });
 
             \Router::rota("adm/getUserById", function () {
                 if (!empty($_POST)) {
                     $dados = $this->model->getUserById($_POST["id_usuario"]);
                     $this->view->echoString(json_encode($dados, JSON_UNESCAPED_UNICODE));
+                }
+            });
+            \Router::rota("adm/setBackupBanco", function () {
+                if (!empty($_POST)) {
+                    $this->model->getBackupBanco();
+                    $this->view->render("adm", 'Home', "navbar", "navfooter");
+                    $this->view->msnBackupDb();
+                }else{
+                    header("location: " . VENDOR_PATH."adm");
+
                 }
             });
             \Router::rota("adm/alterarUsuario", function () {

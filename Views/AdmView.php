@@ -43,4 +43,16 @@ class AdmView extends View
                 },5000);            
             </script>";
     }
+    function msnBackupDb()
+    {
+        echo "
+            
+            <script>
+                $('#dbBk').modal('show');
+            
+                setTimeout(() =>{
+                    $('#dbBk').modal('hide')
+                },5000);            
+            </script>";
+    }
 }
