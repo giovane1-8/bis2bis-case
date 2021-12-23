@@ -16,6 +16,12 @@ class PostController extends Controller
         if ($_SESSION["isLogado"]) {
 
 
+            \Router::rota("post/infiteScrool", function () {
+                if (!empty($_POST)) {
+                    $dados = $this->model->getOnePosts($_POST["offset"]);
+                    echo $dados;
+                }
+            });
             \Router::rota("post/procurarPost", function () {
                 if (!empty($_POST)) {
                     $request = $_POST["post"];
