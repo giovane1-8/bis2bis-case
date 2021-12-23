@@ -55,7 +55,7 @@ $("#pesquisarPostAjax").keyup(function () {
         success: function (dados, string, obg) {
             dropdownMenu.innerHTML = ""
             dados.forEach(post => {
-                dropdownMenu.innerHTML += "<a style='color: black;' href='" + DEFAULT_PATH + "post/view/" + post['id_post'] + "' cursor: pointer;' class='dropdown-item'>" + post['nm_titulo'] + "</a>";
+                dropdownMenu.innerHTML += "<a style='color: black;' href='"+ DEFAULT_PATH +"post/view/" + post['id_post'] + "' cursor: pointer;' class='dropdown-item'>" + post['nm_titulo'] + "</a>";
             });
         },
         error: function (obg, erro, op) {
