@@ -70,7 +70,7 @@ class PostModel extends Model
 
     function getOnePosts($offset)
     {
-        $sql = "SELECT * from tb_post ORDER BY dt_post,id_post DESC LIMIT 1 OFFSET $offset";
+        $sql = "SELECT * from tb_post ORDER BY id_post DESC LIMIT 1 OFFSET $offset";
         $query = $this->PDO->prepare($sql);
         $query->execute();
         $query = $query->fetch($this->PDO::FETCH_ASSOC);

@@ -1,3 +1,45 @@
+<div class='modal fade' id='sucessoModal' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario editado com <font color='green'>SUCESSO</font>
+                </h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='modal fade' id='emailErr' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>EMAIL EM USO</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                Use outro email
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='modal fade' id='userDel' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario excluido com <font color='green'>SUCESSO</font></h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog bd-example-modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -7,13 +49,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form method="POST" action="<?php echo VENDOR_PATH . "adm/alterarUsuario" ?>">
+            <form method="POST" action="<?php echo VENDOR_PATH . "adm/alterarUsuario" ?>">
+
+                <div class="modal-body">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Id: </span>
                         </div>
                         <p type="text" class="form-control" id="iduser" aria-describedby="emailHelp" placeholder="Seu nome"></p>
+                        <input type="hidden" id="idHidden" name="idHidden">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -48,12 +92,12 @@
                         </div>
                     </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <input type="submit" class="btn btn-primary" value="Salvar mudanças">
-                <a type="button" class="btn btn-danger">Excluir usuario</a>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-primary" value="Salvar mudanças">
+                    <a type="button" id="btnExcluiUser" class="btn btn-danger">Excluir usuario</a>
+                </div>
             </form>
 
         </div>
@@ -125,9 +169,11 @@
                     success: function(dados, string, obg) {
                         console.log(dados)
                         $("#iduser").text(dados["id_usuario"])
+                        $("#idHidden").val(dados["id_usuario"])
+
                         $("#nome").val(dados["nm_usuario"])
                         $("#privilegio").val(dados["nm_privilegio"])
-
+                        _("btnExcluiUser").href=DEFAULT_PATH+"adm/user/"+dados["id_usuario"]+"/delete"
                         $("#email").val(dados["nm_email"])
                         $("#senha").val(dados["nm_senha"])
                     },
