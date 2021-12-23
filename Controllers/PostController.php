@@ -15,6 +15,15 @@ class PostController extends Controller
     {
         if ($_SESSION["isLogado"]) {
 
+
+            \Router::rota("post/procurarPost", function () {
+                if (!empty($_POST)) {
+                    $request = $_POST["post"];
+                    $dados = $this->model->procurarPost($request);
+                    echo $dados;
+                }
+            });
+
             \Router::rota("post/view/?/delete", function ($par) {
                 $dados = $this->model->getPostById($par[2]);
 

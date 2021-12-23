@@ -40,17 +40,16 @@
 
 
     </ul>
-    <form autocomplete="off" class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 my-lg-0">
 
       <div class="dropdown">
-        <input class="form-control mr-sm-2 dropdown-toggle" type="search" id="pesquisarMangaAjax" placeholder="Pesquisar" aria-label="Pesquisar" data-toggle="dropdown">
+        <input class="form-control mr-sm-2 dropdown-toggle" type="search" id="pesquisarPostAjax" placeholder="Pesquisar" aria-label="Pesquisar" data-toggle="dropdown">
 
-        <div class="dropdown-menu" id='dropPesquisa' aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu" autocomplete = "off" id='dropPesquisa' aria-labelledby="dropdownMenuButton">
 
         </div>
 
       </div>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-    </form>
+      </div>
   </div>
 </nav>

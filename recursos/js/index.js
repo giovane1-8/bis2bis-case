@@ -41,3 +41,29 @@ darkmode = new Darkmode(options);
 if (darkmode.isActivated()) {
     _("myonoffswitch").checked = true;
 }
+
+
+
+$("#pesquisarPostAjax").keyup(function () {
+    dropdownMenu = document.querySelector("#dropPesquisa");
+    $.ajax({
+        dataType: "json",
+        url: DEFAULT_PATH + "post/procurarPost",
+        data: { "post": _("pesquisarPostAjax").value.trim() },
+        method: "POST",
+        success: function (dados, string, obg) {
+            dropdownMenu.innerHTML = ""
+            dados.forEach(post => {
+                console.log(post)
+                dropdownMenu.innerHTML += "<a style='color: black;' href='"+DEFAULT_PATH+"post/view/"+post['id_post']+"' cursor: pointer;' class='dropdown-item'>" + post['nm_titulo'] + "</a>";
+            });
+        },
+        error: function (obg, erro, op) {
+            console.log(erro)
+        },
+        complete: function (obg, msn) {
+            console.log($("#pesquisarPostAjax").val())
+
+        }
+    })
+})

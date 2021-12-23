@@ -60,5 +60,11 @@ class PostModel extends Model{
         $query -> bindparam(":idPost", $dados["id_post"], \PDO::PARAM_STR);
         $query -> execute();
     }
-
+    function procurarPost($nome_post){
+        $sql = "SELECT * FROM tb_post WHERE nm_titulo like '%$nome_post%' limit 10";
+        $query = $this -> PDO -> prepare($sql);
+        $query -> execute();
+        $return = $query -> fetchAll($this -> PDO::FETCH_ASSOC);
+        return json_encode($return,JSON_UNESCAPED_UNICODE );
+    }
 }

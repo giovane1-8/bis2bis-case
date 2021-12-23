@@ -49,8 +49,6 @@ class HomeController extends Controller
 
 
 
-
-
         } else {
             // SISTEMA DE LOGIN
             \Router::rota("home/login", function () {
