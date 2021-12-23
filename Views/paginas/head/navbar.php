@@ -13,10 +13,13 @@
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel">Painel de usuario</a>
         </li>
 
-        <?php if ($_SESSION['nm_privilegio'] == "gm") : ?>
+        <?php if ($_SESSION['nm_privilegio'] == "gm" || "mod") : ?>
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">Post</a>
           </li>
+        <?php endif; ?>
+
+          <?php if ($_SESSION['nm_privilegio'] == "gm") : ?>
 
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo VENDOR_PATH ?>adm">Administração</a>
