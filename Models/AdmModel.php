@@ -25,4 +25,5 @@ class AdmModel extends Model
         $query = $query->fetchAll($this->PDO::FETCH_ASSOC);
         return json_encode($query, JSON_UNESCAPED_UNICODE);
     }
+   
 }

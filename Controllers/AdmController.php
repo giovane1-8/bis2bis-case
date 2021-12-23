@@ -22,6 +22,14 @@ class AdmController extends Controller
                 }
             });
 
+            \Router::rota("adm/getUserById", function () {
+                if (!empty($_POST)) {
+                    $dados = $this->model->getUserById($_POST["id_usuario"]);
+                    $this -> view ->echoString(json_encode($dados, JSON_UNESCAPED_UNICODE));
+
+                }
+            });
+            
 
             $this->view->render("adm", 'Home', "navbar", "navfooter");
         } else {

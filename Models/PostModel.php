@@ -47,15 +47,6 @@ class PostModel extends Model
         return $query;
     }
 
-    function getUserById($iduser)
-    {
-        $sql = "SELECT * from tb_usuario WHERE id_usuario = :idusuario limit 1";
-        $query = $this->PDO->prepare($sql);
-        $query->bindparam(":idusuario", $iduser);
-        $query->execute();
-        $query = $query->fetch($this->PDO::FETCH_ASSOC);
-        return $query;
-    }
 
     function alterarPost($dados)
     {
