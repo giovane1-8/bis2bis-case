@@ -6,9 +6,3 @@
         <div id="conteudo" style="overflow-y:auto;">
             
         </div>
-<script>
-    window.addEventListener("load", () => {
-
-
-    });
-</script>

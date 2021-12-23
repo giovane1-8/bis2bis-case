@@ -27,4 +27,7 @@
                 include(self::PATH_PAGES."footer/".$footer.".php"); 
             }
         }
+        function echoString($string){
+            echo $string;
+        }
     }

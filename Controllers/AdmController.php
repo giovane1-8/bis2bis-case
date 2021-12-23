@@ -13,7 +13,19 @@ class AdmController extends Controller
     }
     public function index()
     {
-        $this->view->render("adm", 'Home', "navbar", "navfooter");
+        if ($_SESSION["isLogado"] && $_SESSION['nm_privilegio'] == "gm") {
 
+            \Router::rota("adm/userScroll", function () {
+                if (!empty($_POST)) {
+                    $dados = $this->model->getEmailUser($_POST["offset"], @$_POST["nm_usuario"]);
+                    $this -> view ->echoString($dados);
+                }
+            });
+
+
+            $this->view->render("adm", 'Home', "navbar", "navfooter");
+        } else {
+            header("location: " . VENDOR_PATH);
+        }
     }
 }

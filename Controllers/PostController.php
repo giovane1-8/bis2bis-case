@@ -19,14 +19,14 @@ class PostController extends Controller
             \Router::rota("post/infiteScrool", function () {
                 if (!empty($_POST)) {
                     $dados = $this->model->getOnePosts($_POST["offset"]);
-                    echo $dados;
+                    $this -> view ->echoString($dados);
                 }
             });
             \Router::rota("post/procurarPost", function () {
                 if (!empty($_POST)) {
                     $request = $_POST["post"];
                     $dados = $this->model->procurarPost($request);
-                    echo $dados;
+                    $this -> view ->echoString($dados);
                 }
             });
 
@@ -70,7 +70,7 @@ class PostController extends Controller
                 }
             });
 
-            if ($_SESSION['nm_privilegio'] == "gm") {
+            if ($_SESSION['nm_privilegio'] == "gm" ||  $_SESSION['nm_privilegio'] == "mod") {
                 $this->view->render("post", 'Postar', "navbar", "navfooter");
 
 
