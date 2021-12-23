@@ -24,7 +24,11 @@ class AdmController extends Controller
 
             \Router::rota("adm/user/?/delete", function ($par) {
                 $user_id = @$par[2];
+                $iduser = $this->model->getUserById($user_id)["id_usuario"];
                 $this->model->excluiUser($user_id);
+                if($iduser == $_SESSION["id_usuario"] ){
+                     header("location: ".VENDOR_PATH."home/sair");
+                }
                 $this->view->render("adm", 'Home', "navbar", "navfooter");
                 $this->view->msgDelUser();
             });

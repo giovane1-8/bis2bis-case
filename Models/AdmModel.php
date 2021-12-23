@@ -34,6 +34,7 @@ class AdmModel extends Model
         $query = $this->PDO->prepare($sql);
         $query->bindparam(":nomeUsuario", $dados["nome"], \PDO::PARAM_STR);
         $query->bindparam(":emailUsuario", $dados["email"], \PDO::PARAM_STR);
+        $dados["senha"] = base64_encode($dados["senha"]);
         $query->bindparam(":userSenha", $dados["senha"], \PDO::PARAM_STR);
         $query->bindparam(":userPrivilegio", $dados["privilegio"], \PDO::PARAM_STR);
         $query->bindparam(":iduser", $dados["idHidden"], \PDO::PARAM_STR);

@@ -86,7 +86,7 @@ class HomeController extends Controller
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                     $_SESSION["nm_nome"] = trim($dados["nome"]);
                     $_SESSION["nm_email"] = trim($dados["email"]);
-                    $_SESSION["nm_senha"] = trim($dados["senha"]);
+                    $_SESSION["nm_senha"] =trim($dados["senha"]);
                     if (!empty($dados["nome"]) && !empty($dados["email"]) && !empty($dados["senha"]) && !empty($dados["confirmaSenha"])) {
                         if ($this->model->verificarEmail($dados["email"])) {
                             $_SESSION['usuario'] = $dados["email"];

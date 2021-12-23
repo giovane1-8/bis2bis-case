@@ -55,6 +55,7 @@ class Model
         $query->bindparam(":idusuario", $iduser);
         $query->execute();
         $query = $query->fetch($this->PDO::FETCH_ASSOC);
+        $query["nm_senha"] = base64_decode($query["nm_senha"]);
         return $query;
     }
 }

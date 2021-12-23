@@ -34,7 +34,7 @@ class HomeModel extends Model{
         $query = "SELECT * FROM tb_usuario WHERE nm_email = :email AND nm_senha = :senha LIMIT 1";
         $result = $this->PDO->prepare($query);
         $result->bindParam(':email', $dados['usuario'], \PDO::PARAM_STR);
-        $result->bindParam(':senha', $dados['senha'], \PDO::PARAM_STR);
+        $result->bindParam(':senha', base64_encode($dados['senha']));
         $result->execute();
         $return = $result->fetch();
 
@@ -59,7 +59,7 @@ class HomeModel extends Model{
         $smtm = $this->PDO->prepare($sql);
         $smtm->bindParam(1, $dados["nome"], \PDO::PARAM_STR);
         $smtm->bindParam(2, $dados["email"], \PDO::PARAM_STR);
-        $smtm->bindParam(3, $dados["senha"], \PDO::PARAM_STR);
+        $smtm->bindParam(3, base64_encode($dados["senha"]), \PDO::PARAM_STR);
 
         if ($smtm->execute()) {
             $this->resultado = true;
