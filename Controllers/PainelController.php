@@ -20,6 +20,17 @@ class PainelController extends Controller
                 }
             });
 
+            \Router::rota("painel/otherUser/?", function ($par) {
+                
+                $this -> view->dados = $this->model->getUserById($par[2]);
+                if(!empty($this -> view->dados)){
+                    $this->view->render("painelother", 'Painel Do Usuario', "navbar", "navfooter");
+
+                }else{
+                    $this->view->render("painel", 'Painel Do Usuario', "navbar", "navfooter");
+                }
+            });
+
             \Router::rota("painel/atualizar/nome", function () {
                 if (!empty($_POST['nome'])) {
                     $nome = trim($_POST['nome']);

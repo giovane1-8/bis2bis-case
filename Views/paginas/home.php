@@ -3,7 +3,7 @@
 <center>
     <h1>Ultimos Posts</h1>
 </center>
-<div id="conteudo" style="overflow-y:auto;">
+<div id="conteudo" class="container" >
 
 </div>
 <script>

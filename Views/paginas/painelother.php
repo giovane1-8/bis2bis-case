@@ -40,67 +40,33 @@
 
 
     <div class="container form-group col-lg-6">
-        <form action="<?php echo VENDOR_PATH; ?>painel/atualizar/nome" method="POST">
 
             <div class="form-group">
                 <label for="nome">Nome e sobrenome</label>
 
                 <div class="input-group mb-3">
-                    <input type="text" maxlength="45" class="form-control disable" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" value='<?php echo $_SESSION["nm_usuario"]; ?>'>
+                    <p type="text" maxlength="45" class="form-control disable" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" ><?php echo $this->dados["nm_usuario"]; ?></p>
 
-                    <div class="input-group-append">
-
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Atualizar</button>
-                    </div>
                 </div>
-        </form>
 
-        <form action="<?php echo VENDOR_PATH; ?>painel/atualizar/email" method="POST">
 
             <label for="email">Email</label>
 
-            <div class="input-group mb-3">
-                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Seu email" value="<?php echo $_SESSION["nm_email"]; ?>">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Atualizar</button>
-                </div>
-            </div>
-        </form>
+           
+     
 
-        <form action="<?php echo VENDOR_PATH; ?>painel/atualizar/senha" method="POST">
-
-            <label for="senha">Senha</label>
-            <div class="input-group mb-3">
-
-                <input type="password" name="senha" class="form-control" id="senha" value="<?php echo base64_decode($_SESSION["nm_senha"]); ?>">
-
-                <div class="input-group-append">
-                    <button class="btn btn-outline-info" type="button" id="senhaToggle" onclick='mostrarSenha(_("senha"),_("senhaToggle"))'>mostrar</button>
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Atualizar</button>
-
-                </div>
-            </div>
-        </form>
+      
     </div>
 </div>
 <div id="userConteudo" class="container"></div>
 <script>
-    function mostrarSenha(input, button) {
-        if (input.type == "text") {
-            input.type = "password"
-            button.innerHTML = "Mostrar"
-        } else if (input.type == "password") {
-            input.type = "text"
-            button.innerHTML = "Esconde"
-        }
-    }
     window.addEventListener("load", function() {
         var limiteoffset = 0
 
         function carregarPostUserAjax() {
             $.ajax({
                 dataType: "json",
-                url: DEFAULT_PATH + 'painel/infiteScrool/<?php echo $_SESSION["id_usuario"] ?>', //Página PHP que seleciona postagens
+                url: DEFAULT_PATH + 'painel/infiteScrool/<?php echo $this->dados["id_usuario"] ?>', //Página PHP que seleciona postagens
                 method: 'POST', // método post, GET ...
                 data: {
                     offset: limiteoffset
