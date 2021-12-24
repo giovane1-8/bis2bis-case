@@ -57,6 +57,22 @@
 </div>
 
 
+<div class='modal fade' id='criarDb' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='TituloModalCentralizado'>Banco de dados criado com <font color='green'>SUCESSO</font>
+                </h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog bd-example-modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -149,8 +165,8 @@
 
 </form>
 
-<form method="POST" action="<?php echo VENDOR_PATH ?>adm/criarBB">
-    <label for="basic-url" >Não criar o banco de dados mais de 1 vez</label>
+<form method="POST" action="<?php echo VENDOR_PATH ?>adm/criarDB">
+    <label for="basic-url">Não criar o banco de dados mais de 1 vez</label>
     <div class="input-group" aria-labelledby="dropdownMenuButton">
 
         <div class="input-group-prepend">

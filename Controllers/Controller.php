@@ -12,10 +12,15 @@
         public function __construct($view, $model){
             $this->view = $view;
             $this->model = $model;
-            if (@explode("/",$_GET["url"])[0] != "adm" && @$_SESSION["nm_email"] == "root@root"){
-                session_destroy();
-                header("location: ". VENDOR_PATH);
-                die();
+            if (@$_SESSION["nm_email"] == "root@root"){
+                $rota = @explode("/",$_GET["url"])[0];
+                if($_GET["url"] == "post/infiteScrool"){
+                    header("location: ".VENDOR_PATH."adm");
+                }elseif($rota != "adm"){
+                    session_destroy();
+                    header("location: ". VENDOR_PATH);
+                    die();
+                }
             }
 
            

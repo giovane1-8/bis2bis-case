@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+CREATE DATABASE IF NOT EXISTS tb_blog;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -36,6 +36,19 @@ CREATE TABLE IF NOT EXISTS `tb_post` (
   PRIMARY KEY (`id_post`),
   KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE IF NOT EXISTS `tb_post` (
+  `id_post` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_titulo` varchar(100) NOT NULL,
+  `nm_corpo` text NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `dt_post` date NOT NULL,
+  PRIMARY KEY (`id_post`),
+  KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Extraindo dados da tabela `tb_post`

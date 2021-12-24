@@ -13,6 +13,7 @@ class HomeController extends Controller
     }
     public function index()
     {
+        
         if ($_SESSION['isLogado']) {
 
             \Router::rota("home/sair", function () {

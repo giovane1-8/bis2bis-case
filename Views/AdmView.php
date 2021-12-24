@@ -55,4 +55,16 @@ class AdmView extends View
                 },5000);            
             </script>";
     }
+    function msgCriarDb()
+    {
+        echo "
+            
+            <script>
+                $('#criarDb').modal('show');
+            
+                setTimeout(() =>{
+                    $('#criarDb').modal('hide')
+                },5000);            
+            </script>";
+    }
 }

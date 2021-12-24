@@ -31,7 +31,7 @@ CREATE TABLE `tb_post` (
   PRIMARY KEY (`id_post`),
   KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_tb_post_tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `tb_post` (
 
 LOCK TABLES `tb_post` WRITE;
 /*!40000 ALTER TABLE `tb_post` DISABLE KEYS */;
+INSERT INTO `tb_post` VALUES (10,'Como usar pdo com PHP','<h2 style=\"margin-left: 0px;\"><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()#syntax\">Syntax</a></h2><pre><code><span class=\"token function\" style=\"color: rgb(219, 0, 14);\">invert</span><span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">(</span>amount<span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">)</span>\r\n</code></pre><p>Copy to Clipboard</p><h3 style=\"margin-left: 0px;\"><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()#parameters\">Parameters</a></h3><p><code>amount</code></p><p style=\"margin-left: 0px;\">The amount of the conversion, specified as a&nbsp;<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/number\"><code>&lt;number&gt;</code></a>&nbsp;or a&nbsp;<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/percentage\"><code>&lt;percentage&gt;</code></a>. A value of&nbsp;<code>100%</code>&nbsp;is completely inverted, while a value of&nbsp;<code>0%</code>&nbsp;leaves the input unchanged. Values between&nbsp;<code>0%</code>&nbsp;and&nbsp;<code>100%</code>&nbsp;are linear multipliers on the effect. The lacuna value for interpolation is&nbsp;<code>0</code>.</p><h2 style=\"margin-left: 0px;\"><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()#examples\">Examples</a></h2><h3 style=\"margin-left: 0px;\"><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()#examples_of_correct_values_for_invert\">Examples of correct values for invert()</a></h3><pre><code><span class=\"token function\" style=\"color: rgb(219, 0, 14);\">invert</span><span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">(</span>0<span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">)</span>     <span class=\"token comment\" style=\"color: rgb(109, 109, 109);\">/* No effect */</span>\r\n<span class=\"token function\" style=\"color: rgb(219, 0, 14);\">invert</span><span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">(</span>.6<span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">)</span>    <span class=\"token comment\" style=\"color: rgb(109, 109, 109);\">/* 60% inversion */</span>\r\n<span class=\"token function\" style=\"color: rgb(219, 0, 14);\">invert</span><span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">(</span>100%<span class=\"token punctuation\" style=\"color: rgb(109, 109, 109);\">)</span>  <span class=\"token comment\" style=\"color: rgb(109, 109, 109);\">/* Completely inverted */</span>\r\n</code></pre><p>Copy to Clipboard</p><h2 style=\"margin-left: 0px;\"><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()#specifications\">Specifications</a></h2>',26,'2021-12-23');
 /*!40000 ALTER TABLE `tb_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-23 17:57:29
+-- Dump completed on 2021-12-23 18:55:18
