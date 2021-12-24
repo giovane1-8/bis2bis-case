@@ -22,11 +22,17 @@ class AdmController extends Controller
                 }
             });
 
+
+            \Router::rota("adm/msnSucc/?", function ($par) {
+                $this->view->msnTXT = $par[2];
+                $this->view->render("adm", 'Home', "navbar", "navfooter");
+                $this->view->modalSucessoPadrao();
+            });
+
             \Router::rota("adm/criarDB", function () {
                 if (!empty($_POST)) {
                     $this->model->criarDb();
-                    $this->view->render("adm", 'Home', "navbar", "navfooter");
-                    $this->view->msgCriarDb();
+                    header("location: " . VENDOR_PATH . "adm/msnSucc/Banco de dados Criado com ");
                 }
             });
 
@@ -37,8 +43,7 @@ class AdmController extends Controller
                 if ($iduser == $_SESSION["id_usuario"]) {
                     header("location: " . VENDOR_PATH . "home/sair");
                 }
-                $this->view->render("adm", 'Home', "navbar", "navfooter");
-                $this->view->msgDelUser();
+                header("location: " . VENDOR_PATH . "adm/msnSucc/Usuario deletado com ");
             });
 
             \Router::rota("adm/getUserById", function () {
@@ -53,12 +58,14 @@ class AdmController extends Controller
             \Router::rota("adm/setBackupBanco", function () {
                 if (!empty($_POST)) {
                     $this->model->getBackupBanco();
-                    $this->view->render("adm", 'Home', "navbar", "navfooter");
-                    $this->view->msnBackupDb();
+                    header("location: " . VENDOR_PATH . "adm/msnSucc/backup do banco de dados Criado com ");
                 } else {
                     header("location: " . VENDOR_PATH . "adm");
                 }
             });
+
+
+
             \Router::rota("adm/alterarUsuario", function () {
                 if (!empty($_POST)) {
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -78,8 +85,7 @@ class AdmController extends Controller
                         $_SESSION['nm_email'] = $dados['email'];
                         $_SESSION['nm_privilegio'] = $dados['privilegio'];
                         $this->model->altUser($dados);
-                        $this->view->render("adm", 'Home', "navbar", "navfooter");
-                        $this->view->AltUserSucc();
+                        header("location: " . VENDOR_PATH . "adm/msnSucc/Usuario alterado com ");
                     }
                 } else {
                     header("location: " . VENDOR_PATH);
