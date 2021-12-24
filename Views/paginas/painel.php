@@ -96,6 +96,7 @@
     }
     window.addEventListener("load", function() {
         var limiteoffset = 0
+
         function carregarPostUserAjax() {
             $.ajax({
                 dataType: "json",
@@ -110,8 +111,8 @@
 
                     $("#userConteudo").append("<div class='simditor bg-white mb-5'><div class='simditor-body'><font class='float-right mr-3' style='font-weight: 100;'>Postado em: <i>" + data[2] + "/" + data[1] + "/" + data[0] + " </i></font><center><h1><a href='" + DEFAULT_PATH + "post/view/" + dados['id_post'] + "'>" + dados['nm_titulo'] + "</a></h1></center>" + dados['nm_corpo'] + "</div></div>"); // adiciona o resultado na div #conteudo
                 },
-                error: function(x,y){
-                    console.log(x,y)
+                error: function(x, y) {
+                    console.log(x, y)
                 } // fim success
             }); // fim ajax
             limiteoffset++
