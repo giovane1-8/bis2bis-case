@@ -59,7 +59,7 @@
 
 
             <h2 class="text-center "> <?php echo ($value["nm_titulo"]) ?></h2>
-            <font>Criado por: <b><?php echo ($value["nm_usuario"]) ?></b></font> 
+            <font>Criado por:<a href="<?php echo VENDOR_PATH."painel/otherUser/".$value["id_usuario"] ?>"> <b><?php echo ($value["nm_usuario"]) ?></b></a></font> 
 
 
             <font class="float-right mr-3" style="font-weight: 100;">Postado em: <b><i><?php
