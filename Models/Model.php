@@ -16,17 +16,18 @@ class Model
     protected $username, $password, $servidor, $port, $banco, $caminhoMysql;
     function __construct()
     {
+        $this -> banco = "db_blog";
+        
         //VARIAVEIS DE CONFIGURAÇÃO DO BANCO
         $this->username = "root";
         $this->password = "";
         $this->servidor = "localhost";
         $this->port = "3306";
-        
         //Atenção a essa variavel, É totalmente necessario para tarefa de backup do banco de dados
         $this->caminhoMysql = "C:\\xampp\\mysql\\bin\\";
 
         try {
-            $this->PDO = new \PDO('mysql:host=' . $this->servidor . ':' . $this->port . ';dbname=db_blog' . $this->banco, $this->username, $this->password, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            $this->PDO = new \PDO('mysql:host=' . $this->servidor . ':' . $this->port . ';dbname=db_blog', $this->username, $this->password, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $this->PDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             

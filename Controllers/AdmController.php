@@ -29,6 +29,12 @@ class AdmController extends Controller
                 $this->view->modalSucessoPadrao();
             });
 
+            \Router::rota("adm/msnError/?", function ($par) {
+                $this->view->msnTXT = $par[2];
+                $this->view->render("adm", 'Home', "navbar", "navfooter");
+                $this->view->modalErroPadrao();
+            });
+
             \Router::rota("adm/criarDB", function () {
                 if (!empty($_POST)) {
                     $this->model->criarDb();
@@ -46,14 +52,25 @@ class AdmController extends Controller
                 header("location: " . VENDOR_PATH . "adm/msnSucc/Usuario deletado com ");
             });
 
+            \Router::rota("adm/popularDB", function () {
+                if (!empty($_POST)) {
+
+                    if($this -> model-> popularBanco()){
+                        header("location: " . VENDOR_PATH . "adm/msnSucc/Banco de dados populado com ");
+                    }else{
+                        header("location: " . VENDOR_PATH . "adm/msnError/ao popular banco de dados ");
+                    }
+                }
+            });
+
+
+            
             \Router::rota("adm/getUserById", function () {
                 if (!empty($_POST)) {
                     $dados = $this->model->getUserById($_POST["id_usuario"]);
                     $this->view->echoString(json_encode($dados, JSON_UNESCAPED_UNICODE));
                 }
             });
-
-
 
             \Router::rota("adm/setBackupBanco", function () {
                 if (!empty($_POST)) {

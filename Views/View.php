@@ -44,7 +44,18 @@ class View
             },5000);            
         </script>";
     }
-
+    function modalErroPadrao()
+    {
+        echo "
+            
+    <script>
+        $('#errorPadrao').modal('show');
+    
+        setTimeout(() =>{
+            $('#errorPadrao').modal('hide')
+        },5000);            
+    </script>";
+    }
     function echoString($string)
     {
         echo $string;

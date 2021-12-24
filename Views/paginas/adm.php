@@ -1,16 +1,3 @@
-<div class='modal fade' id='sucessoModal' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
-    <div class='modal-dialog modal-dialog-centered' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario editado com <font color='green'>SUCESSO</font>
-                </h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class='modal fade' id='emailErr' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
     <div class='modal-dialog modal-dialog-centered' role='document'>
         <div class='modal-content'>
@@ -27,49 +14,6 @@
     </div>
 </div>
 
-<div class='modal fade' id='userDel' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
-    <div class='modal-dialog modal-dialog-centered' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h5 class='modal-title' id='TituloModalCentralizado'>Usuario excluido com <font color='green'>SUCESSO</font>
-                </h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class='modal fade' id='dbBk' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
-    <div class='modal-dialog modal-dialog-centered' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h5 class='modal-title' id='TituloModalCentralizado'>Backup do BD criado com <font color='green'>SUCESSO</font>
-                </h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class='modal fade' id='criarDb' tabindex='-1' role='dialog' aria-labelledby='TituloModalCentralizado' aria-hidden='true'>
-    <div class='modal-dialog modal-dialog-centered' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h5 class='modal-title' id='TituloModalCentralizado'>Banco de dados criado com <font color='green'>SUCESSO</font>
-                </h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -150,22 +94,9 @@
 
 
 <h1 class="mt-5">Configuração do banco de dados: </h1>
-<form method="POST" class="mb-5" action="<?php echo VENDOR_PATH ?>adm/setBackupBanco">
-
-    <div class="input-group" aria-labelledby="dropdownMenuButton">
-
-        <div class="input-group-prepend">
-            <span class="input-group-text" style="border-radius: 5px" id="basic-addon1">Criar Backup:</span>
-        </div>
-        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar">
 
 
-    </div>
-
-
-</form>
-
-<form method="POST" action="<?php echo VENDOR_PATH ?>adm/criarDB">
+<form method="POST" class="mb-5" action="<?php echo VENDOR_PATH ?>adm/criarDB">
     <div class="input-group" aria-labelledby="dropdownMenuButton">
 
         <div class="input-group-prepend">
@@ -173,7 +104,7 @@
 
         </div>
 
-        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar">
+        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar banco de dados">
 
 
 
@@ -183,6 +114,38 @@
 </form>
 
 
+<form method="POST" class="mb-5" action="<?php echo VENDOR_PATH ?>adm/popularDB">
+    <div class="input-group" aria-labelledby="dropdownMenuButton">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text" style="border-radius: 5px" id="basic-addon1">Popular Banco de dados:</span>
+
+        </div>
+
+        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Popular">
+
+
+
+    </div>
+
+
+</form>
+
+
+<form method="POST" class="mb-5" action="<?php echo VENDOR_PATH ?>adm/setBackupBanco">
+
+    <div class="input-group" aria-labelledby="dropdownMenuButton">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text" style="border-radius: 5px" id="basic-addon1">Criar Backup:</span>
+        </div>
+        <input class="mx-4 form-control" name="botao" type="submit" style="border-radius: 5px" value="Criar backup">
+
+
+    </div>
+
+
+</form>
 <script>
     var limiteoffset = 0;
 
