@@ -53,7 +53,9 @@ class HomeModel extends Model{
     }
 
     function cadastrarUsuario(array $dados = null){
-
+        foreach ($dados as $key => $value) {
+            $dados[$key] = trim($dados[$key]);
+        }
         $sql = "INSERT INTO tb_usuario (nm_usuario,nm_email,nm_senha) 
                        VALUES (?,?,?)";
         $smtm = $this->PDO->prepare($sql);

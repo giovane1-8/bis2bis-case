@@ -24,9 +24,7 @@ class AdmController extends Controller
 
             \Router::rota("adm/criarDB", function () {
                 if (!empty($_POST)) {
-
                     $this->model->criarDb();
-
                     $this->view->render("adm", 'Home', "navbar", "navfooter");
                     $this->view->msgCriarDb();
                 }
@@ -64,12 +62,21 @@ class AdmController extends Controller
             \Router::rota("adm/alterarUsuario", function () {
                 if (!empty($_POST)) {
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+                    foreach ($dados as $key => $value) {
+                        $dados[$key] = trim($dados[$key]);
+                    }
                     $email = $this->model->getUserById($dados["idHidden"]);
                     $email = $email["nm_email"];
                     if ($this->model->verificarEmail($dados["email"]) && $email != $dados["email"]) {
                         $this->view->render("adm", 'Home', "navbar", "navfooter");
                         $this->view->msgEmail();
                     } else {
+
+                        $_SESSION['id_usuario'] = $dados['idHidden'];
+                        $_SESSION['nm_usuario'] = $dados['nome'];
+                        $_SESSION['nm_senha'] = base64_encode($dados['senha']);
+                        $_SESSION['nm_email'] = $dados['email'];
+                        $_SESSION['nm_privilegio'] = $dados['privilegio'];
                         $this->model->altUser($dados);
                         $this->view->render("adm", 'Home', "navbar", "navfooter");
                         $this->view->AltUserSucc();
