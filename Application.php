@@ -21,11 +21,9 @@
                 $class = "Controllers\\HomeController";
                 $url[0] = self::DEFAULT;
             }
-
             $view = 'Views\\'.ucfirst($url[0])."View";
             $model ='Models\\'.ucfirst($url[0])."Model";        
             $controller = new $class(new $view , new $model);
             $controller -> index();
-            
         }
     }

@@ -13,6 +13,13 @@ class PainelController extends Controller
     {
         if ($_SESSION["isLogado"]) {
 
+            \Router::rota("painel/infiteScrool/?", function ($par) {
+                if (!empty($_POST)) {
+                    $dados = $this->model->getOnePostsByUserId($_POST["offset"], $par[2]);
+                    $this->view->echoString($dados);
+                }
+            });
+
             \Router::rota("painel/atualizar/nome", function () {
                 if (!empty($_POST['nome'])) {
                     $nome = trim($_POST['nome']);
@@ -22,7 +29,7 @@ class PainelController extends Controller
                             $_SESSION['nm_usuario'] = $nome;
                         };
                         header("location: " . VENDOR_PATH . "painel");
-                    }else{
+                    } else {
                         $this->view->render("painel", 'Painel Do Usuario');
                         $this->view->avisoModal("Numero maximo permitido é de 45 caracteres");
                     }
@@ -31,7 +38,7 @@ class PainelController extends Controller
                 }
             });
 
-            
+
             \Router::rota("painel/atualizar/email", function () {
                 if (!empty($_POST['email'])) {
                     $email = trim($_POST['email']);
@@ -59,10 +66,11 @@ class PainelController extends Controller
                     header("location: " . VENDOR_PATH . "painel");
                 }
             });
-            
+
+
             //render("NOME DO ARQUIVOU DO CORPO", 'TITULO DA PAGINA', 'CABEÇA DA PAGINA , FOOTER DA PAGINA')
 
-            $this->view->render("painel", 'Painel Do Usuario',"navbar","navfooter");
+            $this->view->render("painel", 'Painel Do Usuario', "navbar", "navfooter");
         } else {
             header('location: ' . VENDOR_PATH);
         }

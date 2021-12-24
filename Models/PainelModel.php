@@ -18,4 +18,12 @@ class PainelModel extends Model
         }
         return true;
     }
+    function getOnePostsByUserId($offset,$idUser){
+        $sql = "SELECT * from tb_post WHERE id_usuario = :iduser ORDER BY id_post DESC LIMIT 1 OFFSET $offset";
+        $query = $this->PDO->prepare($sql);
+        $query -> bindParam(":iduser", $idUser);
+        $query->execute();
+        $query = $query->fetch($this->PDO::FETCH_ASSOC);
+        return json_encode($query, JSON_UNESCAPED_UNICODE);
+    }
 }
