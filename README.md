@@ -5,10 +5,10 @@ Instalação:
 - Colocar todos os arquivos na pasta raiz do servidor Apache
 
 -Se necessário mudar as propriedades de conexão com o servidor do banco de dados localizadas em 'Models/Model.php' dentro da função construtor
--Coloco em ênfase a propriedade caminhoMysql onde indica os arquivos do banco de dados e sem o caminho como descrito na mesma, o banco não vai gerar o Dump nem vai ser criado ou populado na hora da instalação.
+-Coloco em ênfase a propriedade 'caminhoMysql' onde indica os arquivos do banco de dados e sem o caminho como descrito na mesma, o banco não vai gerar o Dump nem vai ser criado ou populado na hora da instalação.
 
 -Se o programa não ficar na pasta raiz do Xammp:
-    -Modificar o nome da Constante VENDOR_PATH em ‘Application.php’	 para o caminho em que o projeto ficou ex: 
+    -Modificar o nome da Constante VENDOR_PATH em ‘Application.php’ para o caminho em que o projeto ficou ex: 
         ‘http://localhost/case-giovane/’ 
     O mesmo para a constante em JavaScript no arquivo ‘recursos/js/index.js’ ex: 
         ‘/case-giovane/’
