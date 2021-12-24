@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `tb_post` (
   `id_usuario` int(11) NOT NULL,
   `dt_post` date NOT NULL,
   PRIMARY KEY (`id_post`),
-  KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`) ON DELETE CASCADE
+  KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`),
+  CONSTRAINT `fk_tb_post_tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 
