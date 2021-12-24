@@ -6,7 +6,7 @@
     <?php if ($_SESSION["nm_privilegio"] == "gm" || $_SESSION["id_usuario"] == $value["id_usuario"]) : ?>
         <form class="col pb-4 mt-3 bg-white" method="post" action="#">
         
-        <font class="">Criado por: <b><?php echo ($value["nm_usuario"]) ?></b></font> 
+        <font class="">Criado por: <b><a href="<?php echo VENDOR_PATH."painel/otherUser/".$value["id_usuario"] ?>"><?php echo ($value["nm_usuario"]) ?></a></b></font> 
 
 
         <font class="float-right  mr-3" style="font-weight: 100;">Postado em: <b><i><?php
