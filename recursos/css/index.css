@@ -1,9 +1,5 @@
 /* CONFIGURAÇÃO GLOBAL */
 
-.card {
-    border: 1px solid #fff;
-    transition: 0.5s;
-}
 
 #footbar {
     transition: 0.5s;
@@ -21,6 +17,22 @@ body {
 
 /* CONFIGURAÇÃO GLOBAL final*/
 
+/* CONFIGURAÇÃO MODO DARK */
+
+
+label.darkmode--activated {
+    color: #fff !important;
+}
+.darkmode--activated .form-group {
+    color: #fff;
+}
+.darkmode--activated .btn {
+    color: #fff;
+}
+
+
+
+/* CONFIGURAÇÃO MODO DARK final*/
 
 /* BOTÃO DO MODO DARK */
 
@@ -111,33 +123,6 @@ body {
 /*===================================== */
 
 
-/* CONFIGURAÇÃO MODO DARK */
-
-
-.darkmode--activated .card {
-    color: #fff;
-    background: black;
-}
-
-.darkmode--activated .btn {
-    color: #fff;
-}
-
-.darkmode-background {
-    transform: scale(100) !important;
-    transition: 1s !important;
-}
-
-.darkmode--activated .carousel-control-prev-icon {
-    filter: invert(100%) !important;
-}
-
-.darkmode--activated .carousel-control-next-icon {
-    filter: invert(100%) !important;
-}
-
-
-/* CONFIGURAÇÃO MODO DARK final*/
 
 @media only screen and (max-device-width: 768px) {
     #footerconfig {

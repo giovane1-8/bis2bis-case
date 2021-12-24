@@ -166,7 +166,6 @@
 </form>
 
 <form method="POST" action="<?php echo VENDOR_PATH ?>adm/criarDB">
-    <label for="basic-url">Não criar o banco de dados mais de 1 vez</label>
     <div class="input-group" aria-labelledby="dropdownMenuButton">
 
         <div class="input-group-prepend">

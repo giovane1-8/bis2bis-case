@@ -17,6 +17,7 @@
                 if($_GET["url"] == "post/infiteScrool"){
                     header("location: ".VENDOR_PATH."adm");
                 }elseif($rota != "adm"){
+                    $_SESSION["isLogado"] = false;
                     session_destroy();
                     header("location: ". VENDOR_PATH);
                     die();

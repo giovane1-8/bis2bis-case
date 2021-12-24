@@ -11,8 +11,8 @@
                 Use outro email ou recupere a senha
             </div>
             <div class='modal-footer'>
-                <a href='<?php echo VENDOR_PATH ?>login/recuperarsenha'> <button class='btn btn-primary'>RECUPERAR SENHA</button><a>
-                        <a href='<?php echo VENDOR_PATH ?>login'> <button class='btn btn-primary'>Fazer Login</button><a>
+                <a href='<?php echo VENDOR_PATH ?>home/recuperarsenha'> <button class='btn btn-primary'>RECUPERAR SENHA</button><a>
+                        <a href='<?php echo VENDOR_PATH ?>'> <button class='btn btn-primary'>Fazer Login</button><a>
             </div>
         </div>
     </div>
@@ -44,14 +44,14 @@
         <div class="d-flex">
             <form method="POST" action="<?php echo VENDOR_PATH."home/cadastrar" ?>">
                     <div class="form-group">
-                        <label for="nome">Nome e sobrenome</label>
+                        <label>Nome e sobrenome</label>
                         <input type="text" class="form-control" maxlength="45" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Seu nome" value="<?php if (isset($_SESSION["nm_nome"])) {
                                                                                                                                                                     echo $_SESSION["nm_nome"];
                                                                                                                                                                 } ?>" required>
                     </div>
 
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label>Email</label>
                     <input type="email" class="form-control" maxlength="45" name="email" id="email" aria-describedby="emailHelp" placeholder="Seu email" value="<?php if (isset($_SESSION["nm_email"])) {
                                                                                                                                                                     echo $_SESSION["nm_email"];
                                                                                                                                                                 } ?>" required>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="senha">Senha</label>
+                    <label>Senha</label>
                     <input type="password" maxlength='45' name="senha" class="form-control" id="senha" placeholder="Senha" value="<?php if (isset($_SESSION["nm_senha"])) {
                                                                                                                                         echo $_SESSION["nm_senha"];
                                                                                                                                     } ?>" required>
@@ -69,10 +69,18 @@
                     <input type="password" maxlength='45' name="confirmaSenha" class="form-control" id="confirmaSenha" placeholder="Confirmar senha" value="" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="darkmode-ignore btn btn-primary">Cadastrar</button>
                 <a href=" <?php echo VENDOR_PATH ?>" class="darkmode-ignore btn btn-dark">Click aqui se ja tiver um login</a>
 
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    window.addEventListener("load", ()=>{
+        if(darkmode.isActivated()){
+            darkmode.toggle()
+        }
+    })
+</script>

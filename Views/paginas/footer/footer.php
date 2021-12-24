@@ -4,7 +4,7 @@
 <script src="<?php echo VENDOR_PATH ?>recursos/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="<?php echo VENDOR_PATH ?>recursos/js/darkmode-js.min.js"></script>
 
-<?php if (explode('/', @$_GET['url'][0] == "post")) : ?>
+<?php if (explode('/', @$_GET['url'])[0] == "post") : ?>
     <script type="text/javascript" src="<?php echo VENDOR_PATH ?>recursos/js/module.js"></script>
     <script type="text/javascript" src="<?php echo VENDOR_PATH ?>recursos/js/hotkeys.js"></script>
     <script type="text/javascript" src="<?php echo VENDOR_PATH ?>recursos/js/uploader.js"></script>

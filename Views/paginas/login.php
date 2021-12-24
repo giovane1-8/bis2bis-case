@@ -27,14 +27,14 @@
         <form class="col" method="post" action="<?php echo VENDOR_PATH."home/login" ?>">
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Endereço de email:</label>
+                <label class="darkmode-ignore">Endereço de email:</label>
                 <input type="text" class="form-control" name="usuario" aria-describedby="emailHelp" placeholder="Seu email" value="<?php if (isset($_SESSION["nm_email"])) {
                                                                                                                                                     echo $_SESSION["nm_email"];
                                                                                                                                                 } ?>" required>
                 <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Senha:</label>
+                <label class="darkmode-ignore">Senha:</label>
                 <input type="password" name="senha" class="form-control" placeholder="Senha" required>
             </div>
 
@@ -54,3 +54,10 @@
         </form>
     </div>
 </div>
+<script>
+    window.addEventListener("load", ()=>{
+        if(darkmode.isActivated()){
+            darkmode.toggle()
+        }
+    })
+</script>

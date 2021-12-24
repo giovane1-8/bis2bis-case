@@ -13,7 +13,7 @@
           <a class="nav-link" href="<?php echo VENDOR_PATH ?>painel">Painel de usuario</a>
         </li>
 
-        <?php if ($_SESSION['nm_privilegio'] == "gm" || "mod") : ?>
+        <?php if ($_SESSION['nm_privilegio'] == "gm" || $_SESSION['nm_privilegio'] == "mod") : ?>
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo VENDOR_PATH ?>post">Post</a>
           </li>
