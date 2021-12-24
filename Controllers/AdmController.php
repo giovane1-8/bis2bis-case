@@ -95,12 +95,14 @@ class AdmController extends Controller
                         $this->view->render("adm", 'Home', "navbar", "navfooter");
                         $this->view->msgEmail();
                     } else {
+                        if($dados["idHidden"] == $_SESSION['id_usuario']){
 
-                        $_SESSION['id_usuario'] = $dados['idHidden'];
-                        $_SESSION['nm_usuario'] = $dados['nome'];
-                        $_SESSION['nm_senha'] = base64_encode($dados['senha']);
-                        $_SESSION['nm_email'] = $dados['email'];
-                        $_SESSION['nm_privilegio'] = $dados['privilegio'];
+                            $_SESSION['id_usuario'] = $dados['idHidden'];
+                            $_SESSION['nm_usuario'] = $dados['nome'];
+                            $_SESSION['nm_senha'] = base64_encode($dados['senha']);
+                            $_SESSION['nm_email'] = $dados['email'];
+                            $_SESSION['nm_privilegio'] = $dados['privilegio'];
+                        }
                         $this->model->altUser($dados);
                         header("location: " . VENDOR_PATH . "adm/msnSucc/Usuario alterado com ");
                     }

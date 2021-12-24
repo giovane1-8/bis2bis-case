@@ -42,7 +42,7 @@ class AdmModel extends Model
 
     function excluiUser($idUser)
     {
-        $sql = "DELETE from tb_usuario Where id_usuario = :iduser";
+        $sql = 'DELETE FROM tb_usuario WHERE id_usuario = :iduser;';
         $smtm = $this->PDO->prepare($sql);
         $smtm->bindParam(":iduser", $idUser);
         $smtm->execute();
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `tb_post` (
     `dt_post` date NOT NULL,
     PRIMARY KEY (`id_post`),
     KEY `fk_tb_post_tb_usuario_idx` (`id_usuario`),
-    CONSTRAINT `fk_tb_post_tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `fk_tb_post_tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
   
   
