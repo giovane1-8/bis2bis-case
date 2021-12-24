@@ -1,4 +1,5 @@
-const DEFAULT_PATH = "/bis2bis-case/";
+//CONSTANTE DE PATH JAVASCRIPT [MODIFICAR SE NECESSARIO]
+const DEFAULT_PATH = "/";
 var darkmode;
 
 function _(element) {
